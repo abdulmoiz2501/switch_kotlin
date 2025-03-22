@@ -19,7 +19,7 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> = _error
 
-    /// Updated fetchNews function  using Flow
+
     fun fetchNews(query: String = "tesla") {
         viewModelScope.launch {
             _loading.value = true
