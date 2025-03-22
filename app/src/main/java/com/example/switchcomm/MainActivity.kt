@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         toolbar = findViewById(R.id.toolbar)
         recyclerView = findViewById(R.id.recyclerView)
         swipeRefresh = findViewById(R.id.swipeRefresh)
@@ -100,6 +99,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText.isNullOrEmpty()) {
+                    viewModel.fetchNews()
+                }
                 return false
             }
         })
